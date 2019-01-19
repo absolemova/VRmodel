@@ -11,11 +11,11 @@ namespace VideoRental
     class CasseteRepClass : ClassRepEntity<Cassette>, CasseteRep
 
     {  
-        public MineVideoRental MineVideoRentalContext
+        public MineVideoRental MineVideoRentalContext //property
         {
             get { return dbContext as MineVideoRental; }
         }
-        public CasseteRepClass(MineVideoRental mineVideoRental):base (mineVideoRental)
+        public CasseteRepClass(MineVideoRental mineVideoRental):base (mineVideoRental) //constructor context bd mine video rental and call base costructor
         {
             
         }
