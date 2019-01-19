@@ -1,4 +1,5 @@
 ﻿using VideoRental.VRmodel;
+using VideoRental.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,15 +44,16 @@ namespace VideoRental
 
             var order1 = new Order { OrderStart = new DateTime(2019, 1, 14), OrderFinish = new DateTime(2019, 1, 18) };
             order1.AddCassette(cassette1);
+            order1.Cost = 100 * (int)order1.OrderFinish.Subtract(order1.OrderStart).TotalDays;
 
             var order2 = new Order { OrderStart = new DateTime(2019, 1, 19), OrderFinish = new DateTime(2019, 1, 26) };
             order2.AddCassette(cassette4);
+            order2.Cost = 100 * (int)order2.OrderFinish.Subtract(order2.OrderStart).TotalDays;
 
             client.AddOrder(order1);
             client.AddOrder(order2);
 
             order1.Close(new DateTime(2019, 1, 19));
-            order2.Close(new DateTime(2019, 1, 20));
 
 
 
@@ -71,52 +73,41 @@ namespace VideoRental
                 unit.CassetteRepasitory.Add(cassette1);
                 unit.CassetteRepasitory.Add(cassette4);
 
-                unit.ClientRepasitory.Add(client);
+                
 
                 unit.OrderRepasitory.Add(order1);
                 unit.OrderRepasitory.Add(order2);
-                
+                unit.ClientRepasitory.Add(client);
+
                 unit.save();
 
                 IList<Cassette> allCassettes = unit.CassetteRepasitory.GetAll().ToList();
 
                 Console.WriteLine("All cassettes:");
                 foreach (var cassette in allCassettes)
-                    Console.WriteLine($"Cassette id={cassette.cassetteID}, amount={cassette.Amount}");
+                    Console.WriteLine($"Cassette id={cassette.Id}, amount={cassette.Amount}");
 
                 IList<Cassette> minCassettes = unit.CassetteRepasitory.GetCassetteMin(3).ToList();
                 Console.WriteLine("Cassettes which have amount < 3 :");
                 foreach (var cassette in minCassettes)
-                    Console.WriteLine($"Cassette id={cassette.cassetteID}, amount={cassette.Amount}");
+                    Console.WriteLine($"Cassette id={cassette.Id}, amount={cassette.Amount}");
 
                 IList<Cassette> maxCassettes = unit.CassetteRepasitory.GetCassetteMax(3).ToList();
                 Console.WriteLine("Cassettes which have amount >= 3 :");
                 foreach (var cassette in maxCassettes)
-                    Console.WriteLine($"Cassette id={cassette.cassetteID}, amount={cassette.Amount}");
+                    Console.WriteLine($"Cassette id={cassette.Id}, amount={cassette.Amount}");
 
-               // var film = unit.FilmRepasitory.GetFilm("Девчата");
-                // var genres = unit.GenreRepasitory.GetFilmGenres(film);
-
-               // Console.WriteLine($"Genres of film {film.Title}:");
-                //foreach (var g in genres)
-                  //  Console.WriteLine(g.Type);
-
-
-
-
-                IList<Cassette> allcassettes = unit.CassetteRepasitory.GetAll().ToList();
-                foreach (var cassette in allcassettes)
-                    Console.WriteLine($"Cassette ID={cassette.cassetteID}, amount={cassette.Amount}");
-
-              
-                IList<Cassette> mincassettes = unit.CassetteRepasitory.GetCassetteMin(3).ToList();
-                foreach(var mincassette in mincassettes)
-                    Console.WriteLine($"Min Cassette ={mincassette.cassetteID}, amount={mincassette.Amount}");
-
-                IList<Cassette> maxcassettes = unit.CassetteRepasitory.GetCassetteMax(55).ToList();
-                foreach (var maxcassette in maxcassettes)
-                    Console.WriteLine($"Max Cassette ={maxcassette.cassetteID}, amount={maxcassette.Amount}");
+                var films = unit.FilmRepasitory.GetFilmByTitle("Девчата");
+                foreach (var film in films)
+                {
+                    var genres = unit.GenreRepasitory.GetGenresOfFilm(film);
+                    Console.WriteLine($"Genres of film {film.Title}:");
+                    foreach (var g in genres)
+                        Console.WriteLine(g.Type);
+                }
             }
+
+            Console.ReadLine();
         }
     }
 }

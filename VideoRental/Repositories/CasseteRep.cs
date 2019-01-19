@@ -5,12 +5,12 @@ using System.Text;
 using VideoRental.VRmodel;
 using System.Threading.Tasks;
 
-namespace VideoRental
+namespace VideoRental.Repositories
 {
     interface CasseteRep:EntityRep<Cassette>
     {
-        ICollection<Cassette> GetCassetteMin(int Amount);
-        ICollection <Cassette> GetCassetteMax(int Amount);
+        IQueryable<Cassette> GetCassetteMin(int Amount);
+        IQueryable<Cassette> GetCassetteMax(int Amount);
 
 
     }

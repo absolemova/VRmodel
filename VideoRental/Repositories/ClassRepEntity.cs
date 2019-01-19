@@ -5,8 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VideoRental
+namespace VideoRental.Repositories
 {
+    // Базовый репозиторий
     public class ClassRepEntity<Class> : EntityRep<Class> where Class : class
 
     {
@@ -26,9 +27,9 @@ namespace VideoRental
             return dbContext.Set<Class>().Find(ID);
 
         }
-        public ICollection<Class> GetAll()
+        public IQueryable<Class> GetAll()
         {
-            return dbContext.Set<Class>().ToList();
+            return dbContext.Set<Class>();
         }
 
         public void Delete(Class entityclass)

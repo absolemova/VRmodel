@@ -5,9 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VideoRental
+namespace VideoRental.Repositories
 {
     interface FilmRep:EntityRep<Film>
     {
+        // могут быть разные фильмы с одинаковыми названиями
+        IQueryable<Film> GetFilmByTitle(string title);
     }
 }

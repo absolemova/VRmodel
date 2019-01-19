@@ -1,13 +1,14 @@
 ﻿using System;
+using VideoRental.VRmodel;
 using System.Collections.Generic;
 using System.Linq;
-using VideoRental.VRmodel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VideoRental
+namespace VideoRental.Repositories
 {
-    interface GenreRep:EntityRep<Genre>
+    interface ClientRep:EntityRep<Client>
     {
+
     }
 }

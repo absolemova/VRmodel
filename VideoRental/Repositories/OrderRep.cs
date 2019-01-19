@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VideoRental
+namespace VideoRental.Repositories
 {
-    interface ClientRep:EntityRep<Client>
+    interface OrderRep:EntityRep<Order>
     {
-
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VideoRental
+namespace VideoRental.Repositories
 {
     class FilmRepClass:ClassRepEntity<Film>,FilmRep
     {
@@ -16,6 +16,11 @@ namespace VideoRental
         public FilmRepClass(MineVideoRental mineVideoRental) : base(mineVideoRental) //constructor context bd mine video rental and call base costructor
         {
 
+        }
+
+        public IQueryable<Film> GetFilmByTitle(string title)
+        {
+            return MineVideoRentalContext.Films.Where(film => film.Title.Equals(title));
         }
     }
 }

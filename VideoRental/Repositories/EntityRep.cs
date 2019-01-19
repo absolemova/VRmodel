@@ -5,14 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VideoRental
+namespace VideoRental.Repositories
 {
+    // Базовй интерфейс
     interface EntityRep <Class> where Class: class
 
     {
         void Add(Class entityclass);
         Class Get(int ID);
-        ICollection<Class> GetAll();
+        IQueryable<Class> GetAll();
         void Delete(Class entityclass);
 
     }

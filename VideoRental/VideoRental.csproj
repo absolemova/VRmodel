@@ -42,9 +42,6 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=2.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.2.1.4\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
     </Reference>
@@ -122,40 +119,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CasseteRep.cs" />
-    <Compile Include="CasseteRepClass.cs" />
-    <Compile Include="ClassRepEntity.cs" />
+    <Compile Include="Migrations\201901192347383_fork.cs" />
+    <Compile Include="Migrations\201901192347383_fork.Designer.cs">
+      <DependentUpon>201901192347383_fork.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\CasseteRep.cs" />
+    <Compile Include="Repositories\CasseteRepClass.cs" />
+    <Compile Include="Repositories\ClassRepEntity.cs" />
     <Compile Include="ClassUnitOfWorkRep.cs" />
-    <Compile Include="ClientRep.cs" />
-    <Compile Include="ClientRepClass.cs" />
-    <Compile Include="EntityRep.cs" />
-    <Compile Include="FilmRep.cs" />
-    <Compile Include="FilmRepClass.cs" />
-    <Compile Include="GenreRep.cs" />
-    <Compile Include="GenreRepClass.cs" />
-    <Compile Include="Migrations\201811281728384_migrations.cs" />
-    <Compile Include="Migrations\201811281728384_migrations.Designer.cs">
-      <DependentUpon>201811281728384_migrations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811281745115_order.cs" />
-    <Compile Include="Migrations\201811281745115_order.Designer.cs">
-      <DependentUpon>201811281745115_order.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812021345237_repo.cs" />
-    <Compile Include="Migrations\201812021345237_repo.Designer.cs">
-      <DependentUpon>201812021345237_repo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901190922016_name.cs" />
-    <Compile Include="Migrations\201901190922016_name.Designer.cs">
-      <DependentUpon>201901190922016_name.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901191116412_repka.cs" />
-    <Compile Include="Migrations\201901191116412_repka.Designer.cs">
-      <DependentUpon>201901191116412_repka.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Repositories\ClientRep.cs" />
+    <Compile Include="Repositories\ClientRepClass.cs" />
+    <Compile Include="Repositories\EntityRep.cs" />
+    <Compile Include="Repositories\FilmRep.cs" />
+    <Compile Include="Repositories\FilmRepClass.cs" />
+    <Compile Include="Repositories\GenreRep.cs" />
+    <Compile Include="Repositories\GenreRepClass.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="OrderRep.cs" />
-    <Compile Include="OrderRepClass.cs" />
+    <Compile Include="Repositories\OrderRep.cs" />
+    <Compile Include="Repositories\OrderRepClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitOfWork.cs" />
@@ -172,20 +153,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201811281728384_migrations.resx">
-      <DependentUpon>201811281728384_migrations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811281745115_order.resx">
-      <DependentUpon>201811281745115_order.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812021345237_repo.resx">
-      <DependentUpon>201812021345237_repo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901190922016_name.resx">
-      <DependentUpon>201901190922016_name.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901191116412_repka.resx">
-      <DependentUpon>201901191116412_repka.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901192347383_fork.resx">
+      <DependentUpon>201901192347383_fork.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

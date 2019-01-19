@@ -7,13 +7,13 @@ namespace VideoRental.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class repo : IMigrationMetadata
+    public sealed partial class fork : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(repo));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(fork));
         
         string IMigrationMetadata.Id
         {
-            get { return "201812021345237_repo"; }
+            get { return "201901192347383_fork"; }
         }
         
         string IMigrationMetadata.Source

@@ -6,7 +6,7 @@ using System.Text;
 using VideoRental.VRmodel;
 using System.Threading.Tasks;
 
-namespace VideoRental
+namespace VideoRental.Repositories
 {
     class CasseteRepClass : ClassRepEntity<Cassette>, CasseteRep
 
@@ -19,14 +19,14 @@ namespace VideoRental
         {
             
         }
-        public ICollection<Cassette> GetCassetteMin(int Amount)
+        public IQueryable<Cassette> GetCassetteMin(int Amount)
         {
-            return MineVideoRentalContext.Cassettes.Where(cassette => cassette.Amount < Amount).ToList();
+            return MineVideoRentalContext.Cassettes.Where(cassette => cassette.Amount < Amount);
         }
 
-        public ICollection<Cassette> GetCassetteMax(int Amount)
+        public IQueryable<Cassette> GetCassetteMax(int Amount)
         {
-            return MineVideoRentalContext.Cassettes.Where(cassette => cassette.Amount > Amount).ToList();
+            return MineVideoRentalContext.Cassettes.Where(cassette => cassette.Amount > Amount);
         }
 
     }
