@@ -119,9 +119,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201901192347383_fork.cs" />
-    <Compile Include="Migrations\201901192347383_fork.Designer.cs">
-      <DependentUpon>201901192347383_fork.cs</DependentUpon>
+    <Compile Include="Migrations\201901200645204_fork.cs" />
+    <Compile Include="Migrations\201901200645204_fork.Designer.cs">
+      <DependentUpon>201901200645204_fork.cs</DependentUpon>
     </Compile>
     <Compile Include="Repositories\CasseteRep.cs" />
     <Compile Include="Repositories\CasseteRepClass.cs" />
@@ -153,8 +153,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201901192347383_fork.resx">
-      <DependentUpon>201901192347383_fork.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901200645204_fork.resx">
+      <DependentUpon>201901200645204_fork.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

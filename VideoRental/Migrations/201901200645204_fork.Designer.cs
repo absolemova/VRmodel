@@ -13,7 +13,7 @@ namespace VideoRental.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201901192347383_fork"; }
+            get { return "201901200645204_fork"; }
         }
         
         string IMigrationMetadata.Source
