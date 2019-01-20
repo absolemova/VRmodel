@@ -32,7 +32,7 @@ namespace VideoRental.Repositories
             return dbContext.Set<Class>();
         }
 
-        public void Delete(Class entityclass)
+        public virtual void Delete(Class entityclass)
         {
             dbContext.Set<Class>().Remove(entityclass);
         }

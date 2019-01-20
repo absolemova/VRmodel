@@ -55,11 +55,9 @@ namespace VideoRental
 
             order1.Close(new DateTime(2019, 1, 19));
 
-
-
             using (ClassUnitOfWorkRep unit = new ClassUnitOfWorkRep(new MineVideoRental()))
             {
-                unit.GenreRepasitory.Add(comedy);
+                /*unit.GenreRepasitory.Add(comedy);
                 unit.GenreRepasitory.Add(drama);
                 unit.GenreRepasitory.Add(melodrama);
                 unit.GenreRepasitory.Add(military);
@@ -73,15 +71,26 @@ namespace VideoRental
                 unit.CassetteRepasitory.Add(cassette1);
                 unit.CassetteRepasitory.Add(cassette4);
 
-                
-
                 unit.OrderRepasitory.Add(order1);
                 unit.OrderRepasitory.Add(order2);
                 unit.ClientRepasitory.Add(client);
 
+                unit.save();*/
+
+                var clients = unit.ClientRepasitory.GetAll();
+                foreach (var c in clients)
+                    Console.WriteLine(c);
+
+                var cl = unit.ClientRepasitory.Get(5);
+                Console.WriteLine(cl);
+
+                var cass = unit.CassetteRepasitory.Get(9);
+                unit.CassetteRepasitory.Delete(cass);
                 unit.save();
 
-                IList<Cassette> allCassettes = unit.CassetteRepasitory.GetAll().ToList();
+                Console.ReadLine();
+
+                /*IList<Cassette> allCassettes = unit.CassetteRepasitory.GetAll().ToList();
 
                 Console.WriteLine("All cassettes:");
                 foreach (var cassette in allCassettes)
@@ -105,9 +114,8 @@ namespace VideoRental
                     foreach (var g in genres)
                         Console.WriteLine(g.Type);
                 }
+                */
             }
-
-            Console.ReadLine();
         }
     }
 }

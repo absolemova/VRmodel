@@ -123,6 +123,10 @@
     <Compile Include="Migrations\201901200645204_fork.Designer.cs">
       <DependentUpon>201901200645204_fork.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901200909250_clientName.cs" />
+    <Compile Include="Migrations\201901200909250_clientName.Designer.cs">
+      <DependentUpon>201901200909250_clientName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\CasseteRep.cs" />
     <Compile Include="Repositories\CasseteRepClass.cs" />
     <Compile Include="Repositories\ClassRepEntity.cs" />
@@ -155,6 +159,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201901200645204_fork.resx">
       <DependentUpon>201901200645204_fork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901200909250_clientName.resx">
+      <DependentUpon>201901200909250_clientName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

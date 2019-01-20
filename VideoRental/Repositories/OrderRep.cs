@@ -9,5 +9,6 @@ namespace VideoRental.Repositories
 {
     interface OrderRep:EntityRep<Order>
     {
+        
     }
 }
