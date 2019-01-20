@@ -12,7 +12,78 @@ namespace VideoRental
     {
         static void Main(string[] args)
         {
-            var comedy = new Genre { Type = "Комедия" };
+            UserInput choice;
+
+            do
+            {
+                Console.Clear();
+                choice = Menu.UserChoice();
+
+                switch (choice)
+                {
+                    case UserInput.AddNewCassette:
+                        Console.WriteLine("\tДобавление в базу новой кассетты:");
+                        //AddNewCassette();
+                        Console.ReadLine();
+                        break;
+
+                    case UserInput.AddNewOrder:
+                        Console.WriteLine("\tФормирование нового заказа:");
+                        //AddNewOrder();
+                        Console.ReadLine();
+                        break;
+
+                    case UserInput.DeleteAll:
+                        Console.WriteLine("\tГори, гори ясно, чтобы всё погасло!");
+                        //DeleteALL();
+                        Console.ReadLine();
+                        break;
+
+                    case UserInput.DeleteCassette:
+                        Console.WriteLine("\tУдалить из базы кассетту:");
+                        //DeleteCassette();
+                        Console.ReadLine();
+                        break;
+
+                    case UserInput.DeleteOrder:
+                        Console.WriteLine("\tУдаление из базы заказа:");
+                        //DeleteOrder();
+                        Console.ReadLine();
+                        break;
+
+                    case UserInput.UpdateClient:
+                        Console.WriteLine("\tОбновление данных у клиента:");
+                        //UpdateClient();
+                        Console.ReadLine();
+                        break;
+
+                    case UserInput.UpdateOrder:
+                        Console.WriteLine("\tОбновление заказа:");
+                        //UpdateOrder();
+                        Console.ReadLine();
+                        break;
+
+                    case UserInput.ShowClientOrders:
+                        Console.WriteLine("\tПросмотр клиентов и их заказов:");
+                        //ShowClientOrders();
+                        Console.ReadLine();
+                        break;
+
+                    case UserInput.ShowFilms:
+                        Console.WriteLine("\tПросмотр фильмов:");
+                        //ShowFilms();
+                        Console.ReadLine();
+                        break;
+
+                    case UserInput.Exit:
+                        Console.WriteLine("\t И Вам не хворать!");
+                        Console.ReadLine();
+                        break;
+                }
+            } while (choice != UserInput.Exit);
+
+
+            /*var comedy = new Genre { Type = "Комедия" };
             var drama = new Genre { Type = "Драма" };
             var melodrama = new Genre { Type = "Мелодрама" };
             var military = new Genre { Type = "Военный" };
@@ -53,11 +124,11 @@ namespace VideoRental
             client.AddOrder(order1);
             client.AddOrder(order2);
 
-            order1.Close(new DateTime(2019, 1, 19));
-
+            order1.Close(new DateTime(2019, 1, 19));*/
+            /*
             using (ClassUnitOfWorkRep unit = new ClassUnitOfWorkRep(new MineVideoRental()))
             {
-                /*unit.GenreRepasitory.Add(comedy);
+                unit.GenreRepasitory.Add(comedy);
                 unit.GenreRepasitory.Add(drama);
                 unit.GenreRepasitory.Add(melodrama);
                 unit.GenreRepasitory.Add(military);
@@ -75,7 +146,7 @@ namespace VideoRental
                 unit.OrderRepasitory.Add(order2);
                 unit.ClientRepasitory.Add(client);
 
-                unit.save();*/
+                unit.save();
 
                 var clients = unit.ClientRepasitory.GetAll();
                 foreach (var c in clients)
@@ -114,8 +185,8 @@ namespace VideoRental
                     foreach (var g in genres)
                         Console.WriteLine(g.Type);
                 }
-                */
-            }
+                
+            }*/
         }
     }
 }
