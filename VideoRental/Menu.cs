@@ -11,12 +11,12 @@ namespace VideoRental
             Type type = typeof(UserInput);
             Array values = type.GetEnumValues();
 
-            Console.WriteLine("\tСписок дозволенного:");
+            Console.WriteLine("\tСписок дозволенного:\n");
             for (int i = 0; i < values.Length; i++)
             {
                 Console.WriteLine($"{Enum.Format(type, values.GetValue(i), "D")}.    {values.GetValue(i)}");
             }
-            Console.Write(">>>");
+            Console.Write(">>> ");
             string key = Console.ReadLine();
             // если нажали что-то нормальное, то очищаем экран
             if (!string.IsNullOrWhiteSpace(key))

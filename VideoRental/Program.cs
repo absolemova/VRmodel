@@ -10,6 +10,94 @@ namespace VideoRental
 {
     class Program
     {
+        public static void AddNewCassette()
+        {
+            Cassette cassette = Cassette.ReadData();
+            // Добавление фильмов
+            using (var unit = new ClassUnitOfWorkRep(new MineVideoRental()))
+            {
+                // если с таким названием кассетта уже есть
+                if (unit.CassetteRepasitory.IsCassetteExists(cassette))
+                {
+                    Console.WriteLine("Ничего нового - такая кассетта уже есть");
+                    Console.ReadLine();
+                    unit.Dispose();
+                    return; // то просто выходим из метода
+                }
+
+                bool enough = false;
+                bool onceMore = true;
+                Console.WriteLine("Добавить фильмы:");
+                do
+                {
+                    string answerString;
+                    int answer = 0;
+
+                    Film film = Film.ReadData();
+                    if (unit.FilmRepasitory.IsFilmExists(film)) // если такой фильм уже есть
+                    {
+                        film = unit.FilmRepasitory.GetSame(film); // то берем его из базы
+                        onceMore = false; // еще жанры к фильму не будем добавлять
+                    }
+                    else
+                    {
+                        Genre genre = Genre.ReadData();
+                        if (unit.GenreRepasitory.IsGenreExists(genre)) // если такой жанр уже есть
+                            genre = unit.GenreRepasitory.GetSame(genre); // то берем его из базы
+                        else
+                            unit.GenreRepasitory.Add(genre);
+
+                        film.AddGenre(genre);
+                        unit.FilmRepasitory.Add(film);
+                        onceMore = true;
+                    }
+
+                    while(onceMore)
+                    {
+                        Console.Write("Добавить еще жанр к фильму? (0 - нет, 1 - да) ");
+                        answerString = Console.ReadLine();
+                        
+                        if (int.TryParse(answerString, out answer))
+                        {
+                            if (answer != 0)
+                            {
+                                Genre genre = Genre.ReadData();
+                                if (unit.GenreRepasitory.IsGenreExists(genre))
+                                    genre = unit.GenreRepasitory.GetSame(genre);
+                                else
+                                    unit.GenreRepasitory.Add(genre);
+                                // update
+                                film.AddGenre(genre);
+                            }
+                            else
+                                onceMore = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Что-то пошло не так... Ничего не будем добавлять");
+                            onceMore = false;
+                        }
+
+                    }
+
+                    cassette.AddFilm(film);
+
+                    Console.Write("Добавить еще фильм? (0 - нет, 1 - да) ");
+                    answerString = Console.ReadLine();
+                    answer = 0;
+                    if (int.TryParse(answerString, out answer))
+                    {
+                        if (answer == 0)
+                            enough = true;
+                    }
+
+                } while (!enough);
+
+                unit.CassetteRepasitory.Add(cassette);
+                unit.save();
+            }
+        }
+
         static void Main(string[] args)
         {
             UserInput choice;
@@ -23,12 +111,34 @@ namespace VideoRental
                 {
                     case UserInput.AddNewCassette:
                         Console.WriteLine("\tДобавление в базу новой кассетты:");
-                        //AddNewCassette();
+                        AddNewCassette();
+                        Console.WriteLine("Кассетта добавлена в базу. Для продолжения ткните в клавиатуру.");
                         Console.ReadLine();
                         break;
 
                     case UserInput.AddNewOrder:
                         Console.WriteLine("\tФормирование нового заказа:");
+                        bool flag = true;
+                        while (flag)
+                        {
+                            Console.Write("Добавить еще? ");
+                            string flagString = Console.ReadLine();
+
+                            if (bool.TryParse(flagString, out flag))
+                            {
+                                if (flag)
+                                    Console.WriteLine("flag == true => еще добавляем");
+                                else
+                                    Console.WriteLine("flag == false => end");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Что-то пошло не так... Ничего не будем добавлять");
+                                flag = false;
+                            }
+                        
+                        }
+                        Console.WriteLine("End");
                         //AddNewOrder();
                         Console.ReadLine();
                         break;
@@ -77,6 +187,11 @@ namespace VideoRental
 
                     case UserInput.Exit:
                         Console.WriteLine("\t И Вам не хворать!");
+                        Console.ReadLine();
+                        break;
+
+                    default:
+                        Console.WriteLine("Сконцентрируйтесь...");
                         Console.ReadLine();
                         break;
                 }

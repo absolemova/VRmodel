@@ -18,9 +18,19 @@ namespace VideoRental.Repositories
 
         }
 
-        public IQueryable<Film> GetFilmByTitle(string title)
+        public IQueryable<Film> GetFilmsByTitle(string title)
         {
-            return MineVideoRentalContext.Films.Where(film => film.Title.Equals(title));
+            return MineVideoRentalContext.Films.Where(film => film.Title == title);
+        }
+
+        public bool IsFilmExists(Film film)
+        {
+            return GetFilmsByTitle(film.Title).Select(f => f.Year).Contains(film.Year);
+        }
+
+        public Film GetSame(Film film)
+        {
+            return GetFilmsByTitle(film.Title).SingleOrDefault(f => f.Year == film.Year);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace VideoRental.Repositories
     {
         IQueryable<Cassette> GetCassetteMin(int Amount);
         IQueryable<Cassette> GetCassetteMax(int Amount);
-
-
+        bool IsCassetteExists(Cassette cassette);
+        Cassette GetSame(Cassette cassette);
     }
 }

@@ -12,7 +12,7 @@ namespace VideoRental
     {
         private readonly MineVideoRental context;
 
-       public CasseteRep CassetteRepasitory { get; set; }
+        public CasseteRep CassetteRepasitory { get; set; }
         public OrderRep OrderRepasitory { get; set; }
         public FilmRep FilmRepasitory { get; set; }
         public GenreRep GenreRepasitory { get; set; }

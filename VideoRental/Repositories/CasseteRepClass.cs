@@ -29,6 +29,16 @@ namespace VideoRental.Repositories
             return MineVideoRentalContext.Cassettes.Where(cassette => cassette.Amount > Amount);
         }
 
+        public bool IsCassetteExists(Cassette cassette)
+        {
+            return MineVideoRentalContext.Cassettes.Select(c => c.Title).Contains(cassette.Title);
+        }
+
+        public Cassette GetSame(Cassette cassette)
+        {
+            return MineVideoRentalContext.Cassettes.SingleOrDefault(c => c.Title == cassette.Title);
+        }
+
         /*public override void Delete(Cassette cassette)
         {
             var films = MineVideoRentalContext.Cassettes.Where(c => c.Id == cassette.Id).Include(c => c.Films);

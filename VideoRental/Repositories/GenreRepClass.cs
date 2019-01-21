@@ -21,5 +21,15 @@ namespace VideoRental.Repositories
         {
             return MineVideoRentalContext.Genres.Where(genre => genre.Films.Any(f => f.Id == film.Id));
         }
+
+        public bool IsGenreExists(Genre genre)
+        {
+            return MineVideoRentalContext.Genres.Select(g => g.Type).Contains(genre.Type);
+        }
+
+        public Genre GetSame(Genre genre)
+        {
+            return MineVideoRentalContext.Genres.SingleOrDefault(g => g.Type == genre.Type);
+        }
     }
 }
