@@ -157,3 +157,5 @@ C:\Users\Маря\source\repos\VideoRental\VideoRental\obj\Debug\VideoRental.Mig
 C:\Users\Маря\source\repos\VideoRental\VideoRental\obj\Debug\VideoRental.Migrations.repo.resources
 C:\Users\Маря\source\repos\VideoRental\VideoRental\obj\Debug\VideoRental.Migrations.name.resources
 C:\Users\Маря\source\repos\VideoRental\VideoRental\obj\Debug\VideoRental.Migrations.repka.resources
+C:\Users\Маря\source\repos\VideoRental\VideoRental\obj\Debug\VideoRental.Migrations.znak.resources
+C:\Users\Маря\source\repos\VideoRental\VideoRental\obj\Debug\VideoRental.Migrations.z.resources

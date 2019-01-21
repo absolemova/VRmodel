@@ -42,9 +42,11 @@ namespace VideoRental
             var client = new Client { Name = new Name("Таня", "Тугодубодумова") };
 
             var order1 = new Order { OrderStart = new DateTime(2019, 1, 14), OrderFinish = new DateTime(2019, 1, 18) };
+            order1.Cost = 100 * (int)order1.OrderFinish.Subtract(order1.OrderStart).TotalDays;
             order1.AddCassette(cassette1);
 
             var order2 = new Order { OrderStart = new DateTime(2019, 1, 19), OrderFinish = new DateTime(2019, 1, 26) };
+            order2.Cost = 100 * (int)order2.OrderFinish.Subtract(order2.OrderStart).TotalDays;
             order2.AddCassette(cassette4);
 
             client.AddOrder(order1);

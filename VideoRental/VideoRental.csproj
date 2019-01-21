@@ -153,6 +153,14 @@
     <Compile Include="Migrations\201901191116412_repka.Designer.cs">
       <DependentUpon>201901191116412_repka.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901191300340_znak.cs" />
+    <Compile Include="Migrations\201901191300340_znak.Designer.cs">
+      <DependentUpon>201901191300340_znak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901191322291_z.cs" />
+    <Compile Include="Migrations\201901191322291_z.Designer.cs">
+      <DependentUpon>201901191322291_z.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OrderRep.cs" />
     <Compile Include="OrderRepClass.cs" />
@@ -186,6 +194,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901191116412_repka.resx">
       <DependentUpon>201901191116412_repka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901191300340_znak.resx">
+      <DependentUpon>201901191300340_znak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901191322291_z.resx">
+      <DependentUpon>201901191322291_z.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
