@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using VideoRental.VRmodel;
+using VideoRental.Repositories;
 using System.Threading.Tasks;
 
 namespace VideoRental
@@ -11,7 +12,7 @@ namespace VideoRental
     {
         private readonly MineVideoRental context;
 
-       public CasseteRep CassetteRepasitory { get; set; }
+        public CasseteRep CassetteRepasitory { get; set; }
         public OrderRep OrderRepasitory { get; set; }
         public FilmRep FilmRepasitory { get; set; }
         public GenreRep GenreRepasitory { get; set; }
